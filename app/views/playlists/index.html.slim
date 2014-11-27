@@ -8,7 +8,6 @@ table
       th Active
       th
       th
-      th
 
   tbody
     - @playlists.each do |playlist|
@@ -16,7 +15,6 @@ table
         td = playlist.name
         td = playlist.url
         td = playlist.active
-        td = link_to 'Show', playlist
         td = link_to 'Edit', edit_playlist_path(playlist)
         td = link_to 'Destroy', playlist, data: {:confirm => 'Are you sure?'}, :method => :delete
 
