@@ -129,6 +129,14 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    slim (2.0.3)
+      temple (~> 0.6.6)
+      tilt (>= 1.3.3, < 2.1)
+    slim-rails (2.1.5)
+      actionpack (>= 3.0, < 4.2)
+      activesupport (>= 3.0, < 4.2)
+      railties (>= 3.0, < 4.2)
+      slim (~> 2.0)
     slop (3.6.0)
     spring (1.2.0)
     sprockets (2.12.3)
@@ -142,6 +150,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
     sync (0.3.1)
       em-http-request
+    temple (0.6.8)
     thin (1.6.3)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0)
@@ -180,6 +189,7 @@ DEPENDENCIES
   rubocop
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
+  slim-rails
   spring
   sync
   thin

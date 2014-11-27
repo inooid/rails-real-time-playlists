@@ -28,6 +28,9 @@ gem 'rubocop', group: :development
 gem 'annotate', '~> 2.6.5'
 gem 'quiet_assets', group: :development
 
+# Slim templates for views
+gem 'slim-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
