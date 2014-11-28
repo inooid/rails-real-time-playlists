@@ -2,7 +2,7 @@
 development:
   server: "http://localhost:9292/faye"
   adapter_javascript_url: "http://localhost:9292/faye/faye.js"
-  auth_token: sdmfklsadflkmsdalkmflaksdmfalskmfasdklf
+  auth_token: 'oisdfdosiajfosidjfoi12392842834234sdfaoisdjfoasdfjsadf'
   adapter: "Faye"
   async: true
 
