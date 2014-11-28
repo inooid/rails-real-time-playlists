@@ -20,6 +20,7 @@ class PlaylistsController < ApplicationController
 
   def change_active_state
     if @playlist.update(playlist_active_params)
+      sync_update @playlist
       redirect_to playlists_path, notice: 'Playlist was successfully updated.'
     else
       redirect_to playlists_path
@@ -47,6 +48,7 @@ class PlaylistsController < ApplicationController
   def update
     respond_to do |format|
       if @playlist.update(playlist_params)
+        sync_update @playlist
         format.html { redirect_to playlists_path, notice: 'Playlist was successfully updated.' }
         format.json { render :show, status: :ok, location: @playlist }
       else
