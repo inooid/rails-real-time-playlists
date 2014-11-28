@@ -1,15 +1,12 @@
 class PlaylistsController < ApplicationController
-  before_action :set_playlist, only: [:show, :edit, :update, :destroy]
+  before_action :set_playlist, only: [
+    :show, :edit, :update, :destroy, :change_active_state
+  ]
 
   # GET /playlists
   # GET /playlists.json
   def index
     @playlists = Playlist.all
-  end
-
-  # GET /playlists/1
-  # GET /playlists/1.json
-  def show
   end
 
   # GET /playlists/new
@@ -21,6 +18,14 @@ class PlaylistsController < ApplicationController
   def edit
   end
 
+  def change_active_state
+    if @playlist.update(playlist_active_params)
+      redirect_to playlists_path, notice: 'Playlist was successfully updated.'
+    else
+      redirect_to playlists_path
+    end
+  end
+
   # POST /playlists
   # POST /playlists.json
   def create
@@ -28,7 +33,7 @@ class PlaylistsController < ApplicationController
 
     respond_to do |format|
       if @playlist.save
-        format.html { redirect_to @playlist, notice: 'Playlist was successfully created.' }
+        format.html { redirect_to playlists_path, notice: 'Playlist was successfully created.' }
         format.json { render :show, status: :created, location: @playlist }
       else
         format.html { render :new }
@@ -62,13 +67,19 @@ class PlaylistsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_playlist
-      @playlist = Playlist.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def playlist_params
-      params.require(:playlist).permit(:name, :url, :active)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_playlist
+    @playlist = Playlist.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only
+  # allow the white list through.
+  def playlist_params
+    params.require(:playlist).permit(:name, :url, :active)
+  end
+
+  def playlist_active_params
+    params.permit(:active)
+  end
 end
