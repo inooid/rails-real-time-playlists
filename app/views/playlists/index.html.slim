@@ -1,15 +1,15 @@
 h1 Listing playlists
 p#notice = notice
 
-table(width='50%')
+table(width='65%')
   thead
     tr
-      th Name
-      th Url
-      th Active
-      th
-      th
-      th
+      th(width='20%') Name
+      th(width='30%') Url
+      th(width='15%') Active
+      th(width='15%')
+      th(width='10%')
+      th(width='10%')
 
   tbody
     - @playlists.each do |playlist|
@@ -19,9 +19,9 @@ table(width='50%')
         td class=((playlist.active ? 'active' : 'inactive'))
           = playlist.active
         - if playlist.active?
-          td = link_to 'Set active', playlist_path(playlist, {active: false}), method: :change_active_state
+          td = link_to 'Set inactive', playlist_path(playlist, {active: false}), method: :change_active_state
         - else
-          td = link_to 'Set inactive', playlist_path(playlist, {active: true}), method: :change_active_state
+          td = link_to 'Set active', playlist_path(playlist, {active: true}), method: :change_active_state
         td = link_to 'Edit', edit_playlist_path(playlist)
         td = link_to 'Destroy', playlist, data: {:confirm => 'Are you sure?'}, :method => :delete
 
