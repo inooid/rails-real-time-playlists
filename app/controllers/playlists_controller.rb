@@ -6,7 +6,7 @@ class PlaylistsController < ApplicationController
   # GET /playlists
   # GET /playlists.json
   def index
-    @playlists = Playlist.all
+    @playlists = Playlist.order(:created_at)
   end
 
   # GET /playlists/new
